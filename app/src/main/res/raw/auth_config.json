@@ -1,0 +1,14 @@
+{
+    "client_id" : "5c452169-9274-4e6d-9c71-d21213438fc4",
+    "authorization_user_agent" : "DEFAULT",
+    "redirect_uri" : "msauth://com.brandonwerner.retailscanner/BjYtfrMFB9oDXSxbnG3XUwQ8DzM%3D",
+    "authorities" : [
+        {
+            "type": "AAD",
+            "audience": {
+                "type": "AzureADMultipleOrgs",
+                "tenant_id": "organizations"
+            }
+        }
+    ]
+}
