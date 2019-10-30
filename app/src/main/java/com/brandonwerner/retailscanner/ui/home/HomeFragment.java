@@ -4,17 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.brandonwerner.retailscanner.R;
-import com.brandonwerner.retailscanner.ui.logout.LogoutFragment;
 import com.microsoft.identity.client.IAccount;
 import com.microsoft.identity.client.IPublicClientApplication;
 import com.microsoft.identity.client.ISingleAccountPublicClientApplication;
@@ -35,6 +34,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
 
     public TextView scannerAnnounce;
+    public ImageView scannerImage;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         this.scannerAnnounce = root.findViewById(R.id.ScanAnnounce);
+        this.scannerImage = root.findViewById(R.id.scannerImage);
 
         // Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
         PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
@@ -91,11 +92,13 @@ public class HomeFragment extends Fragment {
                 // You can use the account data to update your UI or your app database.
                 if (activeAccount != null) {
 
-                 scannerAnnounce.setText("Scan your first item");
+                    scannerAnnounce.setText(getResources().getString(R.string.scanner_loggedin));
+                    scannerImage.setVisibility(View.VISIBLE);
                 }
 
                 else {
-                    scannerAnnounce.setText("Sign in before you scan your item");
+                    scannerImage.setVisibility(View.INVISIBLE);
+                    scannerAnnounce.setText(getResources().getString(R.string.scanner_loggedout));
 
                 }
             }

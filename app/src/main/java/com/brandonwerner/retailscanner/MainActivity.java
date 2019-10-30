@@ -1,19 +1,18 @@
 package com.brandonwerner.retailscanner;
 
 import android.os.Bundle;
-
-import com.brandonwerner.retailscanner.ui.home.HomeFragment;
-import com.brandonwerner.retailscanner.ui.login.LoginFragement;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,28 +20,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.microsoft.identity.client.AuthenticationCallback;
 import com.microsoft.identity.client.IAccount;
-import com.microsoft.identity.client.IAuthenticationResult;
 import com.microsoft.identity.client.IPublicClientApplication;
 import com.microsoft.identity.client.ISingleAccountPublicClientApplication;
 import com.microsoft.identity.client.PublicClientApplication;
-import com.microsoft.identity.client.SilentAuthenticationCallback;
-import com.microsoft.identity.client.exception.MsalClientException;
 import com.microsoft.identity.client.exception.MsalException;
-import com.microsoft.identity.client.exception.MsalServiceException;
-import com.microsoft.identity.client.exception.MsalUiRequiredException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -190,12 +172,12 @@ public class MainActivity extends AppCompatActivity {
         if (account != null) {
 
             this.signInEmail.setText(account.getUsername());
-            this.startShift.setTitle("End Shift");
+            this.startShift.setTitle(getResources().getString(R.string.nav_endshift));
 
         } else {
 
             this.signInEmail.setText(" ");
-            this.startShift.setTitle("Start Shift");
+            this.startShift.setTitle(getResources().getString(R.string.nav_startshift));
 
         }
     }

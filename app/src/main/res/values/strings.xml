@@ -10,4 +10,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_tools">Settings</string>
     <string name="menu_logout">End Shift</string>
+    <string name="scanner_loggedout">You must sign in before you scan your item.</string>
+    <string name="scanner_loggedin">Scan your first item</string>
+    <string name="nav_startshift">Start Shift</string>
+    <string name="nav_endshift">End Shift</string>
 </resources>
