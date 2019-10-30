@@ -22,6 +22,7 @@ import com.microsoft.identity.client.exception.MsalException;
 
 public class HomeFragment extends Fragment {
 
+
     /* Azure AD Variables */
     private ISingleAccountPublicClientApplication mSingleAccountApp;
     String scope = "user.read";
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment {
 
     public TextView scannerAnnounce;
     public ImageView scannerImage;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
